@@ -11,6 +11,7 @@ namespace TRASMEBA.DATOS
 {
     public class PersonaDB
     {
+        
         public DataTable ListarTipoDocumento()
         {
             DataTable dataTable;

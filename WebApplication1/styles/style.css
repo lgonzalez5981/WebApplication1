@@ -18,10 +18,9 @@ input[type=button], input[type=submit], input[type=reset] {
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
-nav{
-    
+nav {
     background: rgb(218,37,28);
-    background: linear-gradient(270deg, rgba(218,37,28,1) 21%, rgba(31,26,24,1) 38%, rgba(255,255,255,1) 81%);
+    background: linear-gradient(270deg, rgba(0,0,255,1) 21%, rgba(31,26,24,1) 38%, rgba(255,255,255,1) 81%);
 }
 
 .nav-link{
@@ -43,7 +42,7 @@ ul{
     margin-right: 30px;
 }
 .botonRojo{
-    background-color: #DA251C;
+    background-color: #0000FF;
     color: white;
 }
 .botonBlanco{

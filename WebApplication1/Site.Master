@@ -7,9 +7,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TrasmebaCarga</title>
+    <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css?_cacheOverride=1622164133047" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style.css">
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+        <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
 </head>
 <body>
     <form runat="server">
@@ -23,10 +25,10 @@
                     <div class="navbar-collapse collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                                <a class="nav-link" aria-current="page" href="frmLanding.aspx">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Empresa</a>
+                                <a class="nav-link" href="frmPedidos.aspx">Pedidos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Comunicate con nosotros</a>
@@ -40,16 +42,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="TrabajaNosotros.html">Trabaja Con Nosotros</a>
                             </li>
-                            <div class="dropdown">
+                            <div class="dropdown" runat="server" id="pnlAdministracion" visible="false">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Paginas
+                                    Administración
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="Login.html">Login</a></li>
-                                    <li><a class="dropdown-item" href="factura.html">Factura</a></li>
-                                    <li><a class="dropdown-item" href="TrabajaNosotros.html">trabaja Con nosotros</a></li>
-                                    <li><a class="dropdown-item" href="index.html">Consulta</a></li>
-                                    <li><a class="dropdown-item" href="Landing.html">Landing</a></li>
+                                    <li><a class="dropdown-item" href="frmAdmonPedidos.aspx">Registrar Pedidos</a></li>
+                                    <li><a class="dropdown-item" href="frmAdmonProductos.aspx">Registrar Productos</a></li>
                                 </ul>
                             </div>
                         </ul>
@@ -58,14 +57,7 @@
             </nav>
         </header>
         <div class="container">
-            <div class="row justify-content-end">
-                <div class="col-md-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate velit facere similique doloribus dicta exercitationem eligendi quia necessitatibus facilis, ad harum quibusdam excepturi. Molestiae, quas? Ipsam ea error dolores fugiat?
-                </div>
-                <div class="d-flex flex-row-reverse bd-highlight">
-                    <button type="button" class="btn botonRojo">Comienza Ahora</button>
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col-md-12">
                     <div class="container body-content">
@@ -76,15 +68,14 @@
 
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia optio totam animi suscipit necessitatibus beatae iure quo, assumenda cum. Quisquam tempora ipsum, porro quas quidem omnis autem nisi laborum. Dolorem.</p>
-                </div>
-            </div>
+            
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
 
 
     </form>

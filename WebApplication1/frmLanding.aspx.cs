@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TRASMEBA.DATOS;
 
 namespace WebApplication1
 {
@@ -11,7 +12,18 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["objPersona"] != null)
+            {
+                PersonaModel objPersona = (PersonaModel)Session["objPersona"];
+                if (objPersona.IdTipoUsuario == 1)
+                {
 
+                }
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }

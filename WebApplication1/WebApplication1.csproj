@@ -163,6 +163,9 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="frmAdmonDetallePedido.aspx" />
+    <Content Include="frmAdmonPedidos.aspx" />
+    <Content Include="frmAdmonProductos.aspx" />
     <Content Include="frmLanding.aspx" />
     <Content Include="frmRegistro.aspx" />
     <Content Include="Global.asax" />
@@ -222,6 +225,27 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdmonDetallePedido.aspx.cs">
+      <DependentUpon>frmAdmonDetallePedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAdmonDetallePedido.aspx.designer.cs">
+      <DependentUpon>frmAdmonDetallePedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdmonPedidos.aspx.cs">
+      <DependentUpon>frmAdmonPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAdmonPedidos.aspx.designer.cs">
+      <DependentUpon>frmAdmonPedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdmonProductos.aspx.cs">
+      <DependentUpon>frmAdmonProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAdmonProductos.aspx.designer.cs">
+      <DependentUpon>frmAdmonProductos.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmLanding.aspx.cs">
       <DependentUpon>frmLanding.aspx</DependentUpon>

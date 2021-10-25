@@ -12,7 +12,7 @@
     <!-- Bootstrap CSS -->
 
 
-    <title>TrasmebaCarga</title>
+    <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css?_cacheOverride=1622164133047" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
     <link rel="stylesheet" href="styles/style.css" />
         <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
@@ -163,7 +163,6 @@
                 <ContentTemplate>
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title">
                                 <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
                         </div>
