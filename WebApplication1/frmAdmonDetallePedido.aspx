@@ -5,14 +5,21 @@
     <asp:HiddenField runat="server" ID="hIdDetalle" Value="0" />
     <asp:ScriptManager runat="server" />
     <div class="container">
-        <asp:Button Text="Nuevo" runat="server" CssClass="btn botonRojo" OnClick="bttNuevo_Click" ID="bttNuevo" />
+        <div class="row">
+            <div class="col-md-3">
+                <asp:Button Text="Nuevo" runat="server" CssClass="btn botonRojo" OnClick="bttNuevo_Click" ID="bttNuevo" />
+            </div>
+            <div class="col-md-3">
+                <asp:Button Text="Regresar" runat="server" CssClass="btn botonRojo" OnClick="bttRegresar_Click" ID="bttRegresar" />
+            </div>
+        </div>
     </div>
     <div class="container border rounded border-panel-padding" runat="server" id="pnlNuevo" visible="false">
         <div class="row">
             <div class="col-md-3">
                 <label class="sr-only">Producto:</label>
-                 <asp:DropDownList runat="server" CssClass="form-control" ID="drpProducto">
-                 </asp:DropDownList>
+                <asp:DropDownList runat="server" CssClass="form-control" ID="drpProducto">
+                </asp:DropDownList>
             </div>
             <div class="col-md-3">
                 <label class="sr-only">Cantidad:</label>
@@ -26,7 +33,7 @@
 
         </div>
     </div>
-        <div class="row">
+    <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header"><strong>Detalle Pedido</strong></div>
@@ -64,9 +71,6 @@
                                                         </svg>
                                                 </asp:LinkButton>
                                             </td>
-                                            <td>
-                                                <asp:LinkButton runat="server" ID="bttProductos" CommandName="Productos" ToolTip="Seleccione para administrar los Productos">Productos</asp:LinkButton>
-                                            </td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>
@@ -78,7 +82,7 @@
             </div>
         </div>
     </div>
-     <div class="modal" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                 <ContentTemplate>

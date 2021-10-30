@@ -31,7 +31,7 @@
                 <br />
                 <!-- Login Form -->
                 <div class="form-group">
-                    <asp:TextBox runat="server" ID="txtUsuario" CssClass="fadeIn second" placeholder="usuario" />
+                    <asp:TextBox runat="server" ID="txtUsuario" CssClass="fadeIn second " placeholder="usuario" />
                 </div>
                 <br />
                 <div class="form-group">

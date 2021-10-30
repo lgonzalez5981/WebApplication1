@@ -122,4 +122,86 @@
             </asp:UpdatePanel>
         </div>
     </div>
+    <div class="modal" id="myModalAspirantes" role="dialog" aria-labelledby="myModalLabelAspirantes" aria-hidden="true">
+        <div class="modal-dialog">
+            <asp:UpdatePanel ID="upModalAspirantes" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div class="modal-content" style="width:120%">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Aspirantes</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-stats order-table ov-h">
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th>Identificación</th>
+                                            <th>Empleado</th>
+                                            <th>Departamento</th>
+                                            <th>Ciudad</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <asp:Repeater runat="server" ID="rptAspirante" OnItemCommand="rptAspirante_ItemCommand">
+                                            <ItemTemplate>
+                                                <tr>
+                                                    <td>
+                                                        <asp:HiddenField runat="server" ID="hIdAsociado" Value='<%#Eval("IdAsociado")%>'></asp:HiddenField>
+                                                        <asp:Label runat="server" ID="lblIdEmpleado" Text='<%#Eval("IdEmpleado")%>'></asp:Label></td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lblEmpleado" Text='<%#Eval("Empleado")%>'></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lblDepartamento" Text='<%#Eval("Departamento")%>'></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="lblCiudad" Text='<%#Eval("Ciudad")%>'></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:LinkButton runat="server" ID="bttVerEmpleado" CommandName="VerEmpleado" ToolTip="Seleccione para ver el empleado">Ver</asp:LinkButton>
+                                                    </td>
+                                                    <td>
+                                                        <asp:LinkButton runat="server" ID="bttAsignar" CommandName="Asignar" ToolTip="Seleccione el conductor para asignar el pedido">Asignar</asp:LinkButton>
+                                                        <ajaxToolkit:ConfirmButtonExtender ID="bttAsignar_ConfirmButtonExtender"
+                                                            runat="server"
+                                                            ConfirmText="¿Está seguro de asignar el pedido?"
+                                                            TargetControlID="bttAsignar"></ajaxToolkit:ConfirmButtonExtender>
+                                                    </td>
+                                                </tr>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Button runat="server" ID="bttCerrarAspirantes" CssClass="btn botonRojo" Text="Cerrar" OnClick="bttCerrarAspirantes_Click" CausesValidation="false" />
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </div>
+        <div class="modal" id="myModalPedido" role="dialog" aria-labelledby="myModalPedidoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <asp:UpdatePanel ID="upModalPedido" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">
+                                <asp:Label ID="lblTituloConfirmacion" runat="server" Text=""></asp:Label></h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="lblModalBodyConfirmacion" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Button runat="server" ID="bttCerrarPedido" CssClass="btn botonRojo" Text="Cerrar" OnClick="bttCerrarPedido_Click" CausesValidation="false" />
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </div>
 </asp:Content>

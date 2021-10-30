@@ -92,6 +92,53 @@ namespace WebApplication1
                 string strIdPedido = hIdPedidoGrid.Value;
                 Response.Redirect("frmAdmonDetallePedido.aspx?IdPedido="+strIdPedido);
             }
+            if (e.CommandName == "Aspirantes")
+            {
+                HiddenField hIdPedidoGrid = e.Item.FindControl("hIdPedido") as HiddenField;
+                PedidoDB objPedido = new PedidoDB();
+                DataTable dttPedido = objPedido.ListarUsuarioInscrito(hIdPedidoGrid.Value);
+                rptAspirante.DataSource = dttPedido;
+                rptAspirante.DataBind();
+
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModalAspirantes", "$('#myModalAspirantes').show();", true);
+                upModalAspirantes.Update();
+            }
+        }
+
+        protected void bttCerrarAspirantes_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModalAspirantes", "$('#myModalAspirantes').hide();", true);
+        }
+
+        protected void rptAspirante_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if(e.CommandName== "Asignar")
+            {
+                HiddenField hIdAsociado = e.Item.FindControl("hIdAsociado") as HiddenField;
+                PedidoDB objPedido = new PedidoDB();
+                objPedido.AsignarPedidoEmpleado(hIdAsociado.Value);
+
+                ListarPedidos();
+
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModalAspirantes", "$('#myModalAspirantes').hide();", true);
+                upModalAspirantes.Update();
+
+                lblTituloConfirmacion.Text = "Correcto";
+                lblModalBodyConfirmacion.Text = "El pedido fue asignado correctamente";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModalPedido", "$('#myModalPedido').show();", true);
+                upModalPedido.Update();
+            }
+            if(e.CommandName== "VerEmpleado")
+            {
+                Label lblIdEmpleado = e.Item.FindControl("lblIdEmpleado") as Label;
+                string IdEmpleado = lblIdEmpleado.Text;
+                Response.Redirect("frmPerfilEmpleado.aspx?IdEmpleado=" + IdEmpleado);
+            }
+        }
+
+        protected void bttCerrarPedido_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmAdmonPedidos.aspx");
         }
     }
 }

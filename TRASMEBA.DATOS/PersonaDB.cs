@@ -176,5 +176,26 @@ namespace TRASMEBA.DATOS
                 throw e;
             }
         }
+        public DataSet ListarInformacionEmpleado(string IdEmpleado)
+        {
+            DataTable dataTable;
+
+            SqlParameter[] sqlParameters1 = new SqlParameter[] { new SqlParameter("@ID_EMPLEADO", IdEmpleado)
+
+            };
+            Datos datos = new Datos();
+
+
+            try
+            {
+                DataSet dataSet = datos.EjecutarSP("P_Listar_Perfil_Empleado", sqlParameters1);
+
+                return dataSet;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

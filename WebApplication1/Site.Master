@@ -31,23 +31,14 @@
                                 <a class="nav-link" href="frmPedidos.aspx">Pedidos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Comunicate con nosotros</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Preguntas frecuentes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Galeria</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="TrabajaNosotros.html">Trabaja Con Nosotros</a>
+                                <a class="nav-link" href="Login.aspx">Salir</a>
                             </li>
                             <div class="dropdown" runat="server" id="pnlAdministracion" visible="false">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     Administración
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="frmAdmonPedidos.aspx">Registrar Pedidos</a></li>
+                                    <li><a class="dropdown-item" href="frmAdmonPedidos.aspx">Administrar Pedidos</a></li>
                                     <li><a class="dropdown-item" href="frmAdmonProductos.aspx">Registrar Productos</a></li>
                                 </ul>
                             </div>

@@ -167,6 +167,8 @@
     <Content Include="frmAdmonPedidos.aspx" />
     <Content Include="frmAdmonProductos.aspx" />
     <Content Include="frmLanding.aspx" />
+    <Content Include="frmPedidos.aspx" />
+    <Content Include="frmPerfilEmpleado.aspx" />
     <Content Include="frmRegistro.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -253,6 +255,20 @@
     </Compile>
     <Compile Include="frmLanding.aspx.designer.cs">
       <DependentUpon>frmLanding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPedidos.aspx.cs">
+      <DependentUpon>frmPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPedidos.aspx.designer.cs">
+      <DependentUpon>frmPedidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPerfilEmpleado.aspx.cs">
+      <DependentUpon>frmPerfilEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPerfilEmpleado.aspx.designer.cs">
+      <DependentUpon>frmPerfilEmpleado.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmRegistro.aspx.cs">
       <DependentUpon>frmRegistro.aspx</DependentUpon>

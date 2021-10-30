@@ -81,5 +81,10 @@ namespace WebApplication1
             pnlNuevo.Visible = false;
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').hide();", true);
         }
+
+        protected void bttRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmAdmonPedidos.aspx");
+        }
     }
 }

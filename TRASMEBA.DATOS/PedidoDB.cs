@@ -111,5 +111,125 @@ namespace TRASMEBA.DATOS
                 throw e;
             }
         }
+        public DataTable ListarPedidoDisponible()
+        {
+            DataTable dataTable;
+            Datos datos = new Datos();
+
+
+            try
+            {
+                DataSet dataSet = datos.EjecutarSP("P_Listar_Pedido", null);
+                if (dataSet.Tables[0].Rows.Count > 0)
+                {
+                    dataTable = dataSet.Tables[0];
+                }
+                else
+                {
+                    dataTable = null;
+                }
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public DataTable ValidarUsuarioPedido(string IdEmpleado, string IdPedido)
+        {
+            DataTable dataTable;
+            SqlParameter[] sqlParameters1 = new SqlParameter[] { new SqlParameter("@ID_PEDIDO", IdPedido)
+                                                                ,new SqlParameter("@ID_EMPLEADO", IdEmpleado)
+
+            };
+            Datos datos = new Datos();
+
+
+            try
+            {
+                DataSet dataSet = datos.EjecutarSP("P_Listar_Pedidos_Inscritos", sqlParameters1);
+                if (dataSet.Tables[0].Rows.Count > 0)
+                {
+                    dataTable = dataSet.Tables[0];
+                }
+                else
+                {
+                    dataTable = null;
+                }
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public void InscribirEmpleadoPedido(string IdPedido, string IdEmpleado)
+        {
+            DataTable dataTable;
+
+            SqlParameter[] sqlParameters1 = new SqlParameter[] { new SqlParameter("@ID_PEDIDO", IdPedido)
+                                                                ,new SqlParameter("@ID_EMPLEADO", IdEmpleado)
+
+            };
+            Datos datos = new Datos();
+
+
+            try
+            {
+                DataSet dataSet = datos.EjecutarSP("P_Inscribir_Conductor_Pedido", sqlParameters1);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public DataTable ListarUsuarioInscrito(string IdPedido)
+        {
+            DataTable dataTable;
+            SqlParameter[] sqlParameters1 = new SqlParameter[] { new SqlParameter("@ID_PEDIDO", IdPedido)
+
+            };
+            Datos datos = new Datos();
+
+
+            try
+            {
+                DataSet dataSet = datos.EjecutarSP("P_Listar_Empleado_Postulado", sqlParameters1);
+                if (dataSet.Tables[0].Rows.Count > 0)
+                {
+                    dataTable = dataSet.Tables[0];
+                }
+                else
+                {
+                    dataTable = null;
+                }
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public void AsignarPedidoEmpleado(string IdAsociado)
+        {
+            DataTable dataTable;
+
+            SqlParameter[] sqlParameters1 = new SqlParameter[] { new SqlParameter("@ID_ASOCIADO", IdAsociado)
+
+            };
+            Datos datos = new Datos();
+
+
+            try
+            {
+                DataSet dataSet = datos.EjecutarSP("P_Asignar_Pedido_Empleado", sqlParameters1);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
