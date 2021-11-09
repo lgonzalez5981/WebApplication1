@@ -18,6 +18,7 @@ namespace WebApplication1
             if (!Page.IsPostBack)
             {
                 ListarDepartamento();
+                ListarTipoDocumento();
                 if (Request.QueryString["IdEmpleado"] != null)
                 {
                     string IdEmpleado = Request.QueryString["IdEmpleado"].ToString();
@@ -50,6 +51,16 @@ namespace WebApplication1
             drpDepartamento.DataBind();
             drpDepartamento.Items.Insert(0, new ListItem("Departamento", "0"));
         }
+        private void ListarTipoDocumento()
+        {
+            PersonaDB objPersona = new PersonaDB();
+            DataTable dttTipoDocumenot = objPersona.ListarTipoDocumento();
+            drpTipoDocumento.DataSource = dttTipoDocumenot;
+            drpTipoDocumento.DataTextField = "TipoDocumento";
+            drpTipoDocumento.DataValueField = "IdTipo";
+            drpTipoDocumento.DataBind();
+            drpTipoDocumento.Items.Insert(0, new ListItem("Tipo Documento", "0"));
+        }
         private void ListarPerfil()
         {
             PersonaDB objPersona = new PersonaDB();
@@ -76,6 +87,13 @@ namespace WebApplication1
                 drpCiudad.SelectedValue = IdCiudad;
                 string LicenciaConducion = dttEmpleado.Rows[0]["LicenciaConducion"].ToString();
                 hUrlLicencia.Value = LicenciaConducion;
+                string IdTipoDocumento = dttEmpleado.Rows[0]["IdTipoDocumento"].ToString();
+                drpTipoDocumento.SelectedValue = IdTipoDocumento;
+                string Usuario = dttEmpleado.Rows[0]["Usuario"].ToString();
+                txtUsuario.Text = Usuario;
+                string Contrasena = dttEmpleado.Rows[0]["Contrasena"].ToString();
+                hContrasena.Value = Contrasena;
+
 
                 DataTable dttVehiculo = dsPersona.Tables[1];
                 string IdVehiculo = dttVehiculo.Rows[0]["IdVechiculo"].ToString();
@@ -107,7 +125,51 @@ namespace WebApplication1
 
         protected void bttGuardar_Click(object sender, EventArgs e)
         {
+            string Identificacion = txtIdentificacion.Text;
+            string Nombre = txtNombre.Text;
+            string Apellido = txtApellido.Text;
+            string Usuario = txtUsuario.Text;
+            string Contrasena = hContrasena.Value;
+            if (txtContrasena.Text != "")
+            {
+                Contrasena = txtContrasena.Text;
+            }
+            DateTime FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
+            string TipoSangre = txtTipoSangre.Text;
+            string Ciudad = drpCiudad.SelectedValue;
+            string Departamento = drpDepartamento.SelectedValue;
+            string Telefono = txtTelefono.Text;
+            string UrlLicencia = hUrlLicencia.Value;
+            string IdTipoDocumento = drpTipoDocumento.SelectedValue;
+            if (fupLicencia.HasFile)
+            {
+                string strRutaDestinoPregunta = Server.MapPath("LicenciaConduccion");
+                string strRuta = strRutaDestinoPregunta + "\\" + fupLicencia.FileName;
+                fupLicencia.SaveAs(strRuta);
+                UrlLicencia = "LicenciaConduccion/" + fupLicencia.FileName;
+            }
+            PersonaDB objPersona = new PersonaDB();
+            objPersona.GuardarUsuario(Identificacion, Nombre, Apellido, Usuario, Contrasena, FechaNacimiento, TipoSangre, Ciudad, Departamento, Telefono, UrlLicencia, IdTipoDocumento);
 
+            string IdVehiculo = "0";
+            string Placa = txtPlaca.Text;
+            string Modelo = txtModelo.Text;
+            string Ruedas = txtRuedas.Text;
+            string Capacidad = txtCapacidad.Text;
+            string UrlMatricula = hUrlMatricula.Value;
+            if (fupMatricula.HasFile)
+            {
+                string strRutaDestinoPregunta = Server.MapPath("Matriculas");
+                string strRuta = strRutaDestinoPregunta + "\\" + fupMatricula.FileName;
+                fupMatricula.SaveAs(strRuta);
+                UrlMatricula = "Matriculas/" + fupMatricula.FileName;
+            }
+            objPersona.GuardarVehiculo(IdVehiculo, Placa, Modelo, Ruedas, Identificacion, Capacidad, UrlMatricula);
+
+            lblModalTitle.Text = "Correcto";
+            lblModalBody.Text = "Información guardada correctamente";
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').show();", true);
+            upModal.Update();
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
@@ -127,6 +189,12 @@ namespace WebApplication1
             Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(filePath));
             Response.WriteFile(filePath);
             Response.End();
+        }
+
+        protected void bttCerrar_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').hide();", true);
+            upModal.Update();
         }
     }
 }

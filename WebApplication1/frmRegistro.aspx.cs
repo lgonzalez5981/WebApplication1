@@ -52,6 +52,7 @@ namespace WebApplication1
             string Departamento = drpDepartamento.SelectedValue;
             string Telefono = txtTelefono.Text;
             string UrlLicencia = "";
+            string IdTipoDocumento = drpTipoDocumento.SelectedValue;
             if (fupLicencia.HasFile)
             {
                 string strRutaDestinoPregunta = Server.MapPath("LicenciaConduccion");
@@ -60,7 +61,7 @@ namespace WebApplication1
                 UrlLicencia = "LicenciaConduccion/" + fupLicencia.FileName;
             }
             PersonaDB objPersona = new PersonaDB();
-            objPersona.GuardarUsuario(Identificacion, Nombre, Apellido, Usuario, Contrasena, FechaNacimiento, TipoSangre, Ciudad, Departamento,Telefono,UrlLicencia);
+            objPersona.GuardarUsuario(Identificacion, Nombre, Apellido, Usuario, Contrasena, FechaNacimiento, TipoSangre, Ciudad, Departamento,Telefono,UrlLicencia, IdTipoDocumento);
 
             string IdVehiculo = "0";
             string Placa = txtPlaca.Text;

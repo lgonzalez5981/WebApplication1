@@ -231,5 +231,77 @@ namespace TRASMEBA.DATOS
                 throw e;
             }
         }
+        public DataTable ListarPedidoAsignadoEmpleado(string IdEmpleado)
+        {
+            DataTable dataTable;
+            SqlParameter[] sqlParameters1 = new SqlParameter[] { new SqlParameter("@ID_EMPLEADO", IdEmpleado)
+
+            };
+            Datos datos = new Datos();
+
+
+            try
+            {
+                DataSet dataSet = datos.EjecutarSP("P_Listar_Pedidos_Asignados_Empleado", sqlParameters1);
+                if (dataSet.Tables[0].Rows.Count > 0)
+                {
+                    dataTable = dataSet.Tables[0];
+                }
+                else
+                {
+                    dataTable = null;
+                }
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public void EntregarPedidoCliente(string IdPedido, string IdEmpleado)
+        {
+            DataTable dataTable;
+
+            SqlParameter[] sqlParameters1 = new SqlParameter[] { new SqlParameter("@ID_PEDIDO", IdPedido)
+                                                                ,new SqlParameter("@ID_EMPLEADO", IdEmpleado)
+
+            };
+            Datos datos = new Datos();
+
+
+            try
+            {
+                DataSet dataSet = datos.EjecutarSP("P_Entregar_Pedido_Cliente", sqlParameters1);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public DataTable ListarPedidoEntregadoCliente()
+        {
+            DataTable dataTable;
+            Datos datos = new Datos();
+
+
+            try
+            {
+                DataSet dataSet = datos.EjecutarSP("P_Listar_Pedido_Entregado_Cliente", null);
+                if (dataSet.Tables[0].Rows.Count > 0)
+                {
+                    dataTable = dataSet.Tables[0];
+                }
+                else
+                {
+                    dataTable = null;
+                }
+                return dataTable;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

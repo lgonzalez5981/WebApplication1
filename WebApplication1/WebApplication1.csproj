@@ -170,6 +170,7 @@
     <Content Include="frmPedidos.aspx" />
     <Content Include="frmPerfilEmpleado.aspx" />
     <Content Include="frmRegistro.aspx" />
+    <Content Include="frmSeguimientoPedidos.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -276,6 +277,13 @@
     </Compile>
     <Compile Include="frmRegistro.aspx.designer.cs">
       <DependentUpon>frmRegistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeguimientoPedidos.aspx.cs">
+      <DependentUpon>frmSeguimientoPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmSeguimientoPedidos.aspx.designer.cs">
+      <DependentUpon>frmSeguimientoPedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

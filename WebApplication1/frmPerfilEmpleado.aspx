@@ -90,8 +90,7 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Contraseña</label>
                             <asp:TextBox runat="server" ID="txtContrasena" CssClass="form-control" TextMode="Password" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtContrasena"
-                                ErrorMessage="Diligencie la contraseña"><label style="color:red"><b>*</b></label></asp:RequiredFieldValidator>
+                            <asp:HiddenField runat="server" ID="hContrasena" Value="" />
                         </div>
                     </asp:Panel>
 
@@ -144,4 +143,24 @@
 
         </div>
     </asp:Panel>
+    <div class="modal" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">
+                                <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Button runat="server" ID="bttCerrar" CssClass="btn botonRojo" Text="Cerrar" OnClick="bttCerrar_Click" CausesValidation="false" />
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+    </div>
 </asp:Content>

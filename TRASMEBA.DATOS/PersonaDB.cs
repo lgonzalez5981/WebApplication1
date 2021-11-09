@@ -98,7 +98,7 @@ namespace TRASMEBA.DATOS
                 throw e;
             }
         }
-        public void GuardarUsuario(string IdEmpleado, string Nombre, string Apellido, string Usuario, string Contrasena, DateTime FechaNacimiento, string TipoSangre, string Ciudad, string Departamento, string Telefono, string Licencia)
+        public void GuardarUsuario(string IdEmpleado, string Nombre, string Apellido, string Usuario, string Contrasena, DateTime FechaNacimiento, string TipoSangre, string Ciudad, string Departamento, string Telefono, string Licencia, string IdTipoDocumento)
         {
             DataTable dataTable;
 
@@ -113,6 +113,7 @@ namespace TRASMEBA.DATOS
                                                                 ,new SqlParameter("@DEPARTAMENTO", Departamento)
                                                                 ,new SqlParameter("@TELEFONO", Telefono)
                                                                 ,new SqlParameter("@LICENCIA", Licencia)
+                                                                ,new SqlParameter("@ID_TIPO_DOCUMENTO", IdTipoDocumento)
 
             };
             Datos datos = new Datos();
